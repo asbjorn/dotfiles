@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/run/user/asbjorn/gvfs/smb-share:server=freenas,share=video'
+let g:netrw_dirhist_2='/home/asbjorn/Statoil/SpaceHunterApp/SpaceHunterApp/build'
+let g:netrw_dirhist_3='/run/user/asbjorn/gvfs/smb-share:server=freenas,share=video'
+let g:netrw_dirhist_4='/home/asbjorn/Statoil/SpaceHunterApp/SpaceHunterApp/build'
+let g:netrw_dirhist_5='/home/asbjorn/Statoil/SpaceHunterApp/libraries/actionbarsherlock/build'
+let g:netrw_dirhist_6='/home/asbjorn/Statoil/SpaceHunterApp/SpaceHunterApp/build'
+let g:netrw_dirhist_7='/run/user/asbjorn/gvfs/smb-share:server=freenas,share=video'
