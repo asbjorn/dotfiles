@@ -5,6 +5,7 @@ if match($TERM, "screen") != 1
     set term=xterm
 endif
 
+" Set a proper/secure encryption scheme
 set cm=blowfish2
 
 
@@ -38,7 +39,7 @@ Plugin 'nsf/gocode'
 Plugin 'amoffat/snake'
 
 " Dockerfile syntax
-Bundle "ekalinin/Dockerfile.vim"
+Plugin 'ekalinin/Dockerfile.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -200,23 +201,9 @@ map <silent>,l <C-w>l
 set dictionary=~/.vim/mydict.dat
 set complete-=k complete+=k
 
-" custom abbreviations
-"iab pythonmain if __name__ == "__main__":<Cr>
-
-
-"iab cmain #include <stdio.h><Cr>#include <stdlib.h><Cr>#include <unistd.h><Cr>#include <string.h><Cr><Cr>int main(int argc, char *argv[])<Cr>{<Cr><Cr>return EXIT_SUCCESS;<Cr>}<Esc>03k$a
-
-
-augroup Xml
-	au BufNewFile *.xml :python import vim
-	au BufNewFile *.xml :python vim.current.buffer[0:0] = ['<?xml version="1.0"?>']
-	au BufNewFile *.xml :python del vim
-augroup end
-
 " Set font according to system
 set gfn=Monospace\ 10
 set shell=/bin/bash
-
 
 set ffs=unix,dos,mac "Default file types
 
