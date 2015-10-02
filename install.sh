@@ -17,6 +17,9 @@ link() {
         # Take backup if exists
         if [ -e $HOME/.$1 ]; then
             echo "  Backup of $HOME/.$1 to $BACKUPDIR"
+            if [ -e $BACKUPDIR/.$1 ]; then
+                rm -rf $BACKUPDIR/.$1
+            fi
             cp -Ra $HOME/.$1 $BACKUPDIR
         fi
 
