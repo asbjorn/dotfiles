@@ -33,11 +33,11 @@ link() {
 # VIM
 echo "init vim >>>"
 link vimrc
+link gvimrc
 if [ ! -d vim/bundle/vundle ]; then
     git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
 fi
 link vim
-link gvimrc
 
 # Git specific
 link gitconfig
@@ -50,3 +50,4 @@ link tmux.conf
 link bashrc
 link bash_aliases
 link bash_functions.sh
+link bash_customization.sh
