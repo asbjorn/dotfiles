@@ -24,23 +24,19 @@ link() {
         fi
 
         #ln -s "`pwd`/$1" "$HOME/.$1"
-        if [ -h $INSTALLDIR/.$1 ]; then
-            echo "  Link $INSTALLDIR/.$1 already exists. Delete first."
-            rm $INSTALLDIR/.$1
-        fi
-        ln -s "`pwd`/$1" "$INSTALLDIR/.$1"
+        ln -s "`pwd`/$1" "$HOME/.$1"
+    else
+        echo "  '$HOME/.$1' already a symlink!"
     fi
 }
 
+# VIM
 echo "init vim >>>"
 link vimrc
-
 if [ ! -d vim/bundle/vundle ]; then
     git clone https://github.com/gmarik/vundle.git vim/bundle/vundle
 fi
-
-# VIM
-link vim_test
+link vim
 link gvimrc
 
 # Git specific
