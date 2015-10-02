@@ -1,0 +1,44 @@
+[color]
+	ui = true
+
+[alias]
+    d = diff --color-words  # show unstaged changes
+    ds = diff --staged      # show staged changes
+    last = diff HEAD^       # show last commited changes
+    unstage = reset HEAD    # remove staged files from index
+    uncommit = reset --soft HEAD^   # go back before the last commit, putting files in unstaged state
+    filelog = log -u        # show changes to a file
+
+    ci = commit
+    cm = commit -m
+    ca = commit --amend
+    
+    b = branch -v
+    r = remote -v
+    t = tag -n
+
+    l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+    ll = log --stat --abbrev-commit
+    fo = log --pretty=oneline --shortstat --abbrev-commit
+    lg = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    lgg = log --oneline --decorate
+    difff = diff --word-diff
+
+    st = status -sb
+    #lg = log --color --graph --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    standup = "!git log --since yesterday --author `git config user.email` --pretty=short"
+    sprint = "!git log --since='2 weeks ago' --author `git config user.email` --pretty=short"
+    ds = diff --staged
+    ap = add -p
+    short = rev-parse --short HEAD
+    tree = log --oneline --graph --decorate --all
+	listtags = !git for-each-ref --sort=subject refs/tags | awk '{print $2, $3}' | sed 's,tag refs/tags/, * ,' | sed 's,commit refs/tags/,   ,'
+
+[push]
+	default = simple
+
+[commit]
+    template = ~/.gitmessage
+
+[include]
+    path = ~/.gitconfig.local
