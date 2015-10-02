@@ -119,13 +119,21 @@ function ppxml() {
     echo $1 | python -c "from lxml import etree;  import sys; parser = etree.XMLParser(remove_blank_text=True); n = sys.stdin.readline().rstrip(); tree = etree.parse(n, parser); tree.write(sys.stdout, pretty_print=True)"
 }
 
+function topmemprocs() {
+    ps axo rss,comm,pid \
+        | awk '{ proc_list[$2] += $1; } END \
+            { for (proc in proc_list) { printf("%d\t%s\n", proc_list[proc],proc); }}' \
+        | sort -n | tail -n 10 | sort -rn \
+        | awk '{$1/=1024;printf "%.0fMB\t",$1}{print $2}'
+}
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f ~/google-cloud-sdk/path.bash.inc ]; then
     . ~/google-cloud-sdk/path.bash.inc
 fi
 
 # The next line enables bash completion for gcloud.
-if [ -f ~/google-cloud-sdk/completion.bash.inc]; then
+if [ -f ~/google-cloud-sdk/completion.bash.inc ]; then
     . ~/google-cloud-sdk/completion.bash.inc
 fi
 
