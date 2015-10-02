@@ -1,0 +1,1 @@
+highlight ColorColumn guibg=magenta
