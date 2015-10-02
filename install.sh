@@ -4,9 +4,8 @@ P=$(dirname "$0")
 echo $P
 cd $(dirname "$0")
 echo "PWD -> $PWD"
-BACKUPDIR=$HOME/dotfiles_old
+BACKUPDIR=$HOME/dotfiles_backup
 
-INSTALLDIR=$HOME/dot_test
 test -d $INSTALLDIR || mkdir $INSTALLDIR
 
 # Create backup dir if not already created
